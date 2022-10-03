@@ -4,7 +4,7 @@ Ft-containers graded 100 by my peers on October 2, 2022. Tested on linux.
 ## In the repo: 
 - containers:
   - contain the 3 containers with the iterators and a Red and Black Tree
-- utiles: 
+- utils: 
   - other reimplemented templates used to reimplement the containers
 - tests:
   - [vector, map, stack]
