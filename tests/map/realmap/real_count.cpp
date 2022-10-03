@@ -1,0 +1,142 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   real_count.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amontaut <amontaut@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/16 16:35:46 by amontaut          #+#    #+#             */
+/*   Updated: 2022/09/26 16:44:21 by amontaut         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <iostream>
+#include <map>
+#include <iterator>
+#include "../../../containers/map.hpp"
+
+#define GREY "\e[0;30m"
+#define RED "\e[0;31m"
+#define GREEN "\e[0;32m"
+#define YELLOW "\e[0;33m"
+#define BLUE "\e[0;34m"
+#define MAGENTA "\e[0;35m"
+#define CYAN "\e[0;36m"
+#define WHITE "\e[0;37m"
+#define BOLD "\e[1;37m"
+#define ITALIC "\e[3;37m"
+#define ITGREY "\e[3;30m"
+#define UNDERL "\e[4;37m"
+#define E "\e[0m"
+
+int main()
+{
+	std::cout << BLUE "/* ************************************************************************** */" E << std::endl;
+	std::cout << BLUE "/* Test for the member function count *************************************** */" E << std::endl;
+	std::cout << BLUE "/* Returns the number of elements with key that compares equivalent to the ** */" E << std::endl;
+	std::cout << BLUE "/* specified argument. ****************************************************** */" E << std::endl;
+	std::cout << BLUE "/* ************************************************************************** */" E << std::endl;
+	std::cout << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BLUE "/* ************************************************************************** */" E << std::endl;
+	std::cout << BLUE "/* Tests with ints. ********************************************************* */" E << std::endl;
+	std::cout << BLUE "/* ************************************************************************** */" E << std::endl;
+	std::cout << std::endl;
+
+	std::map<std::string, int> a_map;
+	std::cout << "a_map is (empty map):" << std::endl;
+	for (std::map<std::string, int>::iterator it = a_map.begin(); it != a_map.end(); ++it)
+		std::cout << it->first << "   " << it->second << std::endl;
+	std::cout << ITGREY " Size is: " << a_map.size() << E;
+	std::cout << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BOLD "do: count of \"Tokyo\" on an empty map: " E << std::endl;
+	if (a_map.count("Tokyo") == 0)
+		std::cout << RED "= 0 so not found" E << std::endl;
+	else
+		std::cout << GREEN "= 1 so found" E << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BOLD "do: add values: " E << std::endl;
+	a_map["Paris"] = 42;
+	a_map["Quebec"] = 42;
+	a_map["Kazan"] = 21;
+	a_map["Moscow"] = 21;
+	a_map["Brussels"] = 19;
+	a_map["Med"] = 1337;
+	a_map["Ben_guerir"] = 1337;
+	a_map["Khouribga"] = 1337;
+	std::cout << "a_map is:" << std::endl;
+	for (std::map<std::string, int>::iterator it = a_map.begin(); it != a_map.end(); ++it)
+		std::cout << it->first << "   " << it->second << std::endl;
+	std::cout << ITGREY " Size is: " << a_map.size() << E;
+	std::cout << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BOLD "do: count of \"Tokyo\": " E << std::endl;
+	if (a_map.count("Tokyo") == 0)
+		std::cout << RED "= 0 so not found" E << std::endl;
+	else
+		std::cout << GREEN "= 1 so found" E << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BOLD "do: count of \"Khouribga\": " E << std::endl;
+	if (a_map.count("Khouribga") == 0)
+		std::cout << RED "= 0 so not found" E << std::endl;
+	else
+		std::cout << GREEN "= 1 so found" E << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BLUE "/* ************************************************************************** */" E << std::endl;
+	std::cout << BLUE "/* Tests with str. ********************************************************** */" E << std::endl;
+	std::cout << BLUE "/* ************************************************************************** */" E << std::endl;
+	std::cout << std::endl;
+
+	std::map<int, std::string> z_map;
+	std::cout << "z_map is (empty map):" << std::endl;
+	for (std::map<int, std::string>::iterator it = z_map.begin(); it != z_map.end(); ++it)
+		std::cout << it->first << "   " << it->second << std::endl;
+	std::cout << ITGREY " Size is: " << z_map.size() << E;
+	std::cout << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BOLD "do: count of 42 on an empty map: " E << std::endl;
+	if (z_map.count(42) == 0)
+		std::cout << RED "= 0 so not found" E << std::endl;
+	else
+		std::cout << GREEN "= 1 so found" E << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BOLD "do: add values: " E << std::endl;
+	z_map[88] = "Mercure";
+	z_map[225] = "Venus";
+	z_map[365] = "Earth";
+	z_map[687] = "Mars";
+	z_map[4329] = "Jupiter";
+	z_map[10751] = "Saturn";
+	z_map[30664] = "Uranus";
+	z_map[60148] = "Neptune";
+	std::cout << "z_map is:" << std::endl;
+	for (std::map<int, std::string>::iterator it = z_map.begin(); it != z_map.end(); ++it)
+		std::cout << it->first << "   " << it->second << std::endl;
+	std::cout << ITGREY " Size is: " << z_map.size() << E;
+	std::cout << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BOLD "do: count of 42: " E << std::endl;
+	if (z_map.count(42) == 0)
+		std::cout << RED "= 0 so not found" E << std::endl;
+	else
+		std::cout << GREEN "= 1 so found" E << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BOLD "do: count of 687:" E << std::endl;
+	if (z_map.count(687) == 0)
+		std::cout << RED "= 0 so not found" E << std::endl;
+	else
+		std::cout << GREEN "= 1 so found" E << std::endl;
+
+	return (0);
+}
